@@ -1,0 +1,14 @@
+{
+  "name": "wavelord-artup",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Wavelord ArtUp - Draw. Together. With AI.",
+  "scripts": {
+    "build:www": "node -e \"const fs=require('fs'); fs.mkdirSync('www/assets',{recursive:true}); ['index.html','style.css','app.js','manifest.json','sw.js'].forEach(f=>fs.copyFileSync(f,'www/'+f)); ['icon-192.png','icon-512.png'].forEach(i=>fs.copyFileSync('assets/'+i,'www/assets/'+i)); console.log('www populated');\"",
+    "cap:sync": "npm run build:www && npx cap sync android"
+  },
+  "dependencies": {
+    "@capacitor/android": "^6.1.2",
+    "@capacitor/core": "^6.1.2"
+  }
+}

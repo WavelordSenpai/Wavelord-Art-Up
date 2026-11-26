@@ -1,0 +1,29 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Wavelord ArtUp</title><meta name="theme-color" content="#d4af37"><link rel="manifest" href="manifest.json">
+<link rel="icon" href="assets/icon-192.png"><link rel="apple-touch-icon" href="assets/icon-192.png">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@600;800&family=Plus+Jakarta+Sans:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css"></head><body>
+<div id="splash"><i class="blob b1"></i><i class="blob b2"></i><i class="blob b3"></i>
+<h1>Wavelord ArtUp</h1><p class="tag">Draw. Together. With AI.</p>
+<div class="cards"><button class="card" data-go="solo"><b>Solo Draw</b><span>Pro canvas, layers, 8 brushes</span></button>
+<button class="card" data-go="room"><b>Draw Together</b><span>Share a room link</span></button>
+<button class="card" data-go="ai"><b>AI Helper</b><span>Ideas, palettes, tips</span></button></div>
+<button id="tapCreate" data-act="skipSplash" class="gold">TAP TO CREATE</button>
+<div class="row"><button id="skipSplash" data-act="skipSplash" class="gold sm">Start Drawing</button><button class="out sm" data-go="room">Draw Together</button><button class="out sm" id="gal">See Gallery</button></div>
+<footer>Version 1.0.0 by Wavelord</footer></div>
+<div id="app" class="hidden">
+<header><button id="undo">Undo</button><button id="redo">Redo</button><button id="clr">Clear</button><button id="lay">Layers</button><button id="exp">Export</button><button id="rest">Restore</button></header>
+<div id="stage"><div id="stack"><canvas id="ov"></canvas></div></div>
+<aside id="lp" class="hidden"><div id="ll"></div><div class="row"><button id="la">Add</button><button id="ld">Copy</button><button id="lx">Delete</button><button id="lm">Merge</button><button id="lc">Clear</button><button id="lu">Up</button><button id="lw">Down</button></div>
+<label>Opacity <input id="lo" type="range" min="0" max="100" value="100"></label><select id="lb"><option>normal</option><option>multiply</option><option>screen</option></select>
+<label>Background <select id="bgs"><option value="#ffffff">White</option><option value="#000000">Black</option><option value="transparent">Transparent</option><option value="grid">Grid</option></select><input id="bgc" type="color" value="#ffffff"></label></aside>
+<aside id="ap" class="hidden"><div class="row"><button data-ai="idea">Idea</button><button data-ai="palette">Palette</button><button data-ai="fix">Fix My Sketch</button><button data-ai="bg">Background</button></div><button disabled id="d3">3D Draw (Coming Soon)</button></aside>
+<aside id="rp" class="hidden"><button id="mk">Create Room</button><input id="rl" readonly><p>Get Genius Room to save this room.</p><a href="https://wavelord-genius-room.netlify.app" target="_blank" rel="noopener">Open in Genius Room</a></aside>
+<div id="ctl"><label>Size<input id="sz" type="range" min="1" max="100" value="8"></label><label>Opacity<input id="op" type="range" min="0" max="100" value="100"></label><label>Smooth<input id="sb" type="range" min="0" max="100" value="20"></label><input id="cp" type="color" value="#d4af37"><select id="pal"><option>Sunset</option><option>Neon</option><option>Pastel</option><option>Copic</option></select><span id="sw"></span></div>
+<nav id="tb"></nav></div>
+<button id="buddy" aria-label="Wave Buddy"><span class="buddy-glyph">&#127912;</span></button>
+<div id="pop" class="hidden"><button data-p="ret">Return to Canvas</button><button data-p="talk">Talk to AI</button><button data-p="col">Collapse to Bubble</button></div>
+<div id="pop2" class="hidden"><button data-p="ret">Return to App</button><button data-p="talk">Talk to AI</button><button data-p="exit">Exit App</button></div>
+<button id="bubble" class="hidden" aria-label="ArtUp bubble"><span class="buddy-glyph">&#127912;</span></button>
+<div id="chat" class="hidden"><div id="cl"></div><div class="row"><input id="ci" placeholder="Ask anything"><button id="cs">Send</button><button id="cx">Close</button></div></div>
+<div id="toast"></div><script src="app.js"></script></body></html>

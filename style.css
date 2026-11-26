@@ -1,0 +1,170 @@
+/* Wavelord ArtUp Phone-First Obsidian & Gold Stylesheet */
+:root{
+  --bg:#0a0a0f;
+  --panel:#11131d;
+  --card:#161926;
+  --gold:#d4af37;
+  --gold-bright:#ffd700;
+  --crimson:#c1272d;
+  --teal:#14b8a6;
+  --ink:#f5f3eb;
+  --muted:#a6a398;
+  --border:rgba(212,175,55,0.28);
+  --nav:64px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{
+  margin:0;padding:0;width:100%;height:100%;
+  background:var(--bg);color:var(--ink);
+  font-family:'Plus Jakarta Sans',system-ui,-apple-system,sans-serif;
+  overflow:hidden;touch-action:manipulation;
+}
+.hidden{display:none!important}
+button,input,select{font-family:inherit;font-size:15px}
+button{min-height:44px;cursor:pointer;border-radius:14px;border:1px solid var(--border);background:var(--card);color:var(--ink);padding:10px 12px}
+button:active{transform:scale(0.98)}
+button:disabled{opacity:0.45;cursor:not-allowed}
+
+/* Splash / Landing */
+#splash{
+  position:fixed;inset:0;z-index:20;
+  display:flex;flex-direction:column;justify-content:space-between;
+  padding:24px 18px 18px;
+  background:linear-gradient(180deg,#0a0a0f 0%,#0f1624 45%,#1a237e 100%);
+  overflow-y:auto;
+}
+.blob{position:fixed;border-radius:50%;filter:blur(48px);pointer-events:none;opacity:0.25}
+.b1{width:220px;height:220px;background:var(--gold);top:-40px;right:-50px}
+.b2{width:200px;height:200px;background:var(--teal);bottom:90px;left:-60px}
+.b3{width:180px;height:180px;background:var(--crimson);top:38%;right:-40px}
+#splash h1{
+  position:relative;z-index:1;margin:8px 0 4px;
+  font-family:'Cinzel',Georgia,serif;font-weight:800;font-size:clamp(28px,7vw,40px);
+  color:var(--gold-bright);text-align:center;letter-spacing:0.04em;
+}
+.tag{position:relative;z-index:1;margin:0 0 16px;text-align:center;color:var(--ink);font-size:16px;opacity:0.92}
+.cards{position:relative;z-index:1;display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:14px}
+.card{
+  display:flex;flex-direction:column;align-items:flex-start;gap:4px;
+  text-align:left;padding:14px 16px;border-radius:16px;
+  background:rgba(15,22,36,0.88);border:1px solid var(--border);
+}
+.card b{font-family:'Cinzel',serif;color:var(--gold-bright);font-size:16px}
+.card span{color:var(--muted);font-size:13px}
+#tapCreate{
+  position:relative;z-index:1;width:100%;min-height:50px;
+  font-family:'Cinzel',serif;font-weight:800;letter-spacing:0.05em;
+  margin-bottom:10px;
+}
+.gold{background:linear-gradient(135deg,var(--gold),var(--gold-bright));color:#0a0a0f;border:none;font-weight:700}
+.out{background:rgba(10,10,15,0.65);color:var(--gold-bright);border:1px solid var(--gold)}
+.sm{min-height:44px;padding:8px 10px;font-size:14px}
+.row{position:relative;z-index:1;display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+#splash .row>.out,#splash .row>.gold{flex:1 1 0;min-width:96px}
+#splash footer{position:relative;z-index:1;text-align:center;color:var(--muted);font-size:12px;padding-top:10px}
+
+/* App Shell */
+#app{position:fixed;inset:0;display:flex;flex-direction:column;background:var(--bg)}
+header{
+  display:flex;gap:6px;padding:8px;overflow-x:auto;
+  background:var(--panel);border-bottom:1px solid var(--border);flex-shrink:0;
+}
+header button{flex:1 0 auto;min-height:44px;padding:8px 10px;font-size:13px;white-space:nowrap}
+
+#stage{
+  position:relative;flex:1 1 auto;min-height:0;
+  display:flex;align-items:center;justify-content:center;
+  overflow:auto;padding:8px;background:#07070b;
+}
+#stack{position:relative;background:#ffffff;border-radius:12px;overflow:hidden;box-shadow:0 8px 32px rgba(0,0,0,0.65)}
+#ov{position:absolute;inset:0;z-index:50;touch-action:none}
+.cur{
+  position:absolute;z-index:60;pointer-events:none;
+  padding:2px 6px;border-radius:8px;font-size:11px;font-weight:700;color:#0a0a0f;
+  transform:translate(-50%,-100%);white-space:nowrap;
+}
+
+/* Side/Floating Panels */
+aside{
+  position:fixed;left:10px;right:10px;bottom:calc(var(--nav) + 66px);z-index:35;
+  max-height:46vh;overflow-y:auto;padding:12px;border-radius:16px;
+  background:rgba(17,19,29,0.97);border:1px solid var(--gold);
+  box-shadow:0 12px 32px rgba(0,0,0,0.75);
+}
+aside label{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-top:8px;font-size:13px;color:var(--muted)}
+aside input[type="range"]{flex:1}
+aside select,aside input[type="text"],aside input:not([type]){
+  min-height:44px;padding:8px 10px;border-radius:12px;
+  background:var(--card);color:var(--ink);border:1px solid var(--border);
+}
+#rl{width:100%;margin:8px 0}
+#ll{display:flex;flex-direction:column;gap:6px;margin-bottom:8px}
+#ll>div{
+  display:flex;align-items:center;justify-content:space-between;gap:8px;
+  padding:6px 10px;border-radius:10px;background:var(--card);border:1px solid transparent;
+}
+#ll>div.on{border-color:var(--gold-bright);background:rgba(212,175,55,0.14)}
+#ll button{min-height:44px;padding:6px 10px;font-size:12px}
+
+/* Controls & Bottom Toolbar */
+#ctl{
+  display:flex;flex-wrap:wrap;align-items:center;gap:6px;
+  padding:6px 8px;background:var(--panel);border-top:1px solid var(--border);flex-shrink:0;
+}
+#ctl label{display:flex;align-items:center;gap:4px;font-size:12px;color:var(--muted);flex:1 1 92px}
+#ctl input[type="range"]{width:100%;min-width:52px}
+#cp{width:44px;height:44px;padding:2px;border-radius:10px;border:1px solid var(--border);background:var(--card)}
+#pal{min-height:44px;padding:6px 8px;border-radius:10px;background:var(--card);color:var(--ink);border:1px solid var(--border);font-size:12px}
+#sw{display:inline-flex;align-items:center;gap:4px;flex-wrap:wrap}
+#sw i{display:inline-block;width:20px;height:20px;border-radius:50%;border:1px solid rgba(255,255,255,0.35);cursor:pointer}
+
+#tb{
+  display:flex;gap:6px;padding:6px 8px;overflow-x:auto;
+  min-height:var(--nav);background:#0d0f18;border-top:1px solid var(--border);flex-shrink:0;
+}
+#tb button{flex:0 0 auto;min-height:44px;padding:8px 12px;font-size:13px;text-transform:capitalize}
+#tb button.on{background:var(--gold);color:#0a0a0f;border-color:var(--gold-bright);font-weight:700}
+
+/* Buddy & Bubble */
+#buddy,#bubble{
+  position:fixed;right:14px;bottom:calc(var(--nav) + 18px);z-index:80;
+  width:56px;height:56px;min-height:56px;padding:0;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  background:radial-gradient(circle at 30% 30%,var(--gold-bright),var(--gold));
+  color:#0a0a0f;border:2px solid #fff3c4;box-shadow:0 8px 24px rgba(0,0,0,0.65);
+}
+.buddy-glyph{display:inline-block;font-size:26px;line-height:1;pointer-events:none;animation:buddyBounce 2.4s ease-in-out infinite}
+@keyframes buddyBounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-3px)}}
+
+#pop,#pop2{
+  position:fixed;z-index:90;display:flex;flex-direction:column;gap:6px;
+  min-width:184px;padding:8px;border-radius:16px;
+  background:rgba(15,22,36,0.98);border:1px solid var(--gold-bright);
+  box-shadow:0 12px 28px rgba(0,0,0,0.8);
+}
+#pop button,#pop2 button{width:100%;min-height:44px;text-align:left;font-size:14px}
+
+/* Chat Drawer */
+#chat{
+  position:fixed;left:10px;right:10px;bottom:calc(var(--nav) + 16px);z-index:95;
+  max-height:58vh;display:flex;flex-direction:column;gap:8px;padding:12px;
+  border-radius:16px;background:rgba(10,10,15,0.98);border:1.5px solid var(--gold-bright);
+  box-shadow:0 14px 36px rgba(0,0,0,0.85);
+}
+#cl{flex:1 1 auto;overflow-y:auto;max-height:36vh;font-size:14px;line-height:1.45}
+#cl p{margin:6px 0;padding:8px 10px;border-radius:10px;background:var(--panel)}
+#ci{flex:1 1 160px;min-height:44px;padding:8px 12px;border-radius:12px;background:var(--card);color:var(--ink);border:1px solid var(--border)}
+#cs{min-height:44px;background:var(--gold-bright);color:#0a0a0f;font-weight:700;border:none}
+#cx{min-height:44px}
+
+/* Toast & Netlify Badge Kill */
+#toast{
+  position:fixed;left:50%;bottom:calc(var(--nav) + 84px);transform:translateX(-50%);z-index:110;
+  padding:10px 16px;border-radius:999px;background:#0f1624;color:var(--gold-bright);
+  border:1px solid var(--gold);font-size:13px;pointer-events:none;
+  opacity:0;transition:opacity 0.2s ease;max-width:90vw;text-align:center;
+}
+#toast.on{opacity:1}
+a[href*="netlify"],div[class*="netlify"],div[id*="netlify"],iframe[src*="netlify"]{
+  display:none!important;visibility:hidden!important;pointer-events:none!important;
+}
